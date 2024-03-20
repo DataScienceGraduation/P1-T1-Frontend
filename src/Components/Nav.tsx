@@ -1,9 +1,11 @@
 import React from 'react'
+import Navlink from './Navlink';
 
 export const Nav = () => {
     return (
         <nav>
-            Test
+            <Navlink href="/athletics" name="ATHLETICS" />
+            <Navlink href="/essentials" name="ESSENTIALS" />
         </nav>
     )
 }
