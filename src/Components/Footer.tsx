@@ -8,7 +8,7 @@ const Footer = () => {
             <div className='grid max-w-screen-sm grid-cols-3 px-4 mx-auto lg:max-w-screen-lg 2xl:max-w-screen-2xl'>
              <div className='my-auto'>
                 <h1>JOIN THE CONVERSATION</h1>
-                <Form type='email' placeholder='example@gmail.com' value='' required={true} className='w-full' />
+                <Form type='email' placeholder='example@gmail.com' required={true} className='w-full' />
              </div>
              <div>
                 <img src={logo} alt='Urban thread' className='mx-auto'></img>
