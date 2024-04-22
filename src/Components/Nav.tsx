@@ -4,6 +4,7 @@ import shoppingCart from '../gg_shopping-cart.svg';
 import search from '../gg_search.svg';
 import user from '../gg_user.svg';
 import Navlink from './Navlink';
+import { Link } from 'react-router-dom';
 
 export const Nav = () => {
     return (
@@ -13,13 +14,15 @@ export const Nav = () => {
                     <Navlink href="/athletics" name="ATHLETICS" />
                     <Navlink href="/essentials" name="ESSENTIALS" />
                 </div>
-                <div>
+                <Link to={'/'}>
                     <img src={logo} alt='Urban thread' className='mx-auto'></img>
-                </div>
+                </Link>
                 <div className='flex justify-end my-auto space-x-4'>
                     <img src={shoppingCart} alt='Shopping Cart'></img>
                     <img src={search} alt='search'></img>
-                    <img src={user} alt='user'></img>
+                    <Link to={'/login'}>
+                        <img src={user} alt='user'></img>
+                    </Link>
                 </div>
             </div>
         </nav>
