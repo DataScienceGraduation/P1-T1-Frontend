@@ -12,9 +12,13 @@ module.exports = {
       fontFamily: {
         'heading': ['Heming'],
         'body': ['Violet Sans'],
-      }
+      },
+      boxShadow: {
+        'text': '0 2px 4px rgba(0, 0, 0, 0.2)',
+      },
     },
   },
+  variants:{},
   plugins: [
     require('@tailwindcss/forms')
   ],

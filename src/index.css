@@ -14,6 +14,10 @@
   src: url('fonts/heming-variable.ttf') format('truetype');
 }
 
+.text-shadow {
+  text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
 body {
   @apply font-body;
   -webkit-font-smoothing: antialiased;
