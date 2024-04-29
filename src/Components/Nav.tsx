@@ -1,12 +1,17 @@
-import React from 'react'
+import React, { useState } from 'react'
 import logo from '../logo.svg';
 import shoppingCart from '../gg_shopping-cart.svg';
 import search from '../gg_search.svg';
 import user from '../gg_user.svg';
 import Navlink from './Navlink';
 import { Link } from 'react-router-dom';
+import Checkout from './Checkout';
 
 export const Nav = () => {
+    const [showCheckout, setShowcheckout] = useState(false);
+    const toggleCheckout = () =>{
+        setShowcheckout(!showCheckout);
+    }
     return (
         <nav className='py-3 bg-secondary'>
             <div className='grid max-w-screen-sm grid-cols-3 px-4 mx-auto lg:max-w-screen-lg 2xl:max-w-screen-2xl '>
@@ -18,15 +23,16 @@ export const Nav = () => {
                     <img src={logo} alt='Urban thread' className='mx-auto'></img>
                 </Link>
                 <div className='flex justify-end my-auto space-x-4'>
-                    <Link to={'/Cart'}>
+                    <button onClick={toggleCheckout}>
                     <img src={shoppingCart} alt='Shopping Cart'></img>
-                    </Link>
+                    </button>
                     <img src={search} alt='search'></img>
                     <Link to={'/login'}>
                         <img src={user} alt='user'></img>
                     </Link>
                 </div>
             </div>
+            <Checkout show={showCheckout} onClose={toggleCheckout} />
         </nav>
     )
 }
