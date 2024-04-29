@@ -8,6 +8,8 @@ import fleeceHoodie from './images/fleece-hoodie.png';
 import hoodedSweatshirt from './images/hooded-sweatshirt.png';
 import Blob from './blob.svg';
 import Circle from './circle.svg';
+import { Link } from 'react-router-dom';
+import ProductLink from './Components/ProductLink'
 
 const App = () => {
   return (
@@ -19,9 +21,9 @@ const App = () => {
       </Section>
       <Section>
         <div className="grid grid-cols-1 gap-4 lg:grid-cols-3">
-          <Item name="Product 1" price={50} image={championHoodie} />
-          <Item name="Product 2" price={60} image={fleeceHoodie} />
-          <Item name="Product 3" price={30} image={hoodedSweatshirt} />
+          <ProductLink to="../product" name="Product 1" price={50} image={championHoodie} children={undefined}/>
+          <ProductLink to = "../product" name="Product 2" price={60} image={fleeceHoodie} children={undefined}/>
+          <ProductLink to = "../product" name="Product 3" price={30} image={hoodedSweatshirt} children={undefined}/>
         </div>
       </Section>
     </Layout>

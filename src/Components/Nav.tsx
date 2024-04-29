@@ -18,7 +18,9 @@ export const Nav = () => {
                     <img src={logo} alt='Urban thread' className='mx-auto'></img>
                 </Link>
                 <div className='flex justify-end my-auto space-x-4'>
+                    <Link to={'/Cart'}>
                     <img src={shoppingCart} alt='Shopping Cart'></img>
+                    </Link>
                     <img src={search} alt='search'></img>
                     <Link to={'/login'}>
                         <img src={user} alt='user'></img>
