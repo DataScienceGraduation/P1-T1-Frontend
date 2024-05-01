@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import Layout from './Components/Layout';
+import Section from './Components/Section';
 import Item from './Components/Item';
 import { useLocation } from 'react-router-dom';
 import StrippedHoodie from './images/StrippedHoodie.png';
@@ -34,19 +35,20 @@ const Product: React.FC = () => {
     }
     return(
         <Layout>
-        <div className='grid grid-cols-4 gap-1 justify-between'>
-        <div className='flex flex-col flex-wrap justify-center'>
-            <img src={images.img1} alt='' className='w-16 h-20 my-1' onClick={() => setActiveImage(images.img1)}></img>
-            <img src={images.img2} alt='' className='w-16 h-20 my-1' onClick={() => setActiveImage(images.img2)}></img>
-            <img src={images.img3} alt='' className='w-16 h-20 my-1' onClick={() => setActiveImage(images.img3)}></img>
-            <img src={images.img4} alt='' className='w-16 h-20 my-1' onClick={() => setActiveImage(images.img4)}></img>
-            <img src={images.img5} alt='' className='w-16 h-20 my-1' onClick={() => setActiveImage(images.img5)}></img>
+        <Section>
+        <div className='grid justify-between gap-12 md:grid-cols-6'>
+        <div className='flex flex-row flex-wrap justify-center order-2 md:space-y-1 md:flex-col md:order-1'>
+            <img src={images.img1} alt='' className='w-16 h-20 mx-1 md:mr-0 md:ml-auto' onClick={() => setActiveImage(images.img1)}></img>
+            <img src={images.img2} alt='' className='w-16 h-20 mx-1 md:mr-0 md:ml-auto' onClick={() => setActiveImage(images.img2)}></img>
+            <img src={images.img3} alt='' className='w-16 h-20 mx-1 md:mr-0 md:ml-auto' onClick={() => setActiveImage(images.img3)}></img>
+            <img src={images.img4} alt='' className='w-16 h-20 mx-1 md:mr-0 md:ml-auto' onClick={() => setActiveImage(images.img4)}></img>
+            <img src={images.img5} alt='' className='w-16 h-20 mx-1 md:mr-0 md:ml-auto' onClick={() => setActiveImage(images.img5)}></img>
            </div>
-        <div className='col-span-1 md:col-span-2 flex items-center justify-center'>
-        <img src={ActiveImg} alt='Oversized Stripped Hoodie' className="w-67 h-auto mx-auto"></img>
+        <div className='flex items-center order-1 md:order-2 justify-right md:col-span-2'>
+        <img src={ActiveImg} alt='Oversized Stripped Hoodie' className="h-auto mx-auto w-67"></img>
         </div>
-          <div className='col-span-1 flex flex-col gap-2 justify-start'>
-            <h3 className='text-2xl font-body font-bold'>OVERSIZED STRIPED SWEATER</h3>
+        <div className='flex flex-col justify-start order-3 gap-2 md:col-span-3'>
+            <h3 className='text-2xl font-bold font-body'>OVERSIZED STRIPED SWEATER</h3>
             <p className='text-gray-500'>the Oversized Striped Sweater by Pull&Bear, 
               a perfect blend of comfort and style. 
               Crafted with premium quality materials, this sweater offers a relaxed and trendy look. 
@@ -55,16 +57,16 @@ const Product: React.FC = () => {
             <div className='flex flex-row gap-16'>
             <h6 className='text-lg font-medium text-center'>EGP 1,490</h6>
             <div>
-              <button className='bg-gray-100 py-2 px-4 rounded-lg' onClick={decreaseCount}>-</button>
-              <span className='py-4 px-6 rounded-lg'>{count}</span>
-              <button className='bg-gray-100 py-2 px-4 rounded-lg' onClick={increaseCount}>+</button>
+              <button className='px-4 py-2 bg-gray-100 rounded-lg' onClick={decreaseCount}>-</button>
+              <span className='px-6 py-4 rounded-lg'>{count}</span>
+              <button className='px-4 py-2 bg-gray-100 rounded-lg' onClick={increaseCount}>+</button>
             </div>
             </div>
             <Dropdown options={["Small", "Medium", "Large"]} onSelect={handleSizeSelect} />
             <Button className="mt-4" text = "ADD TO MY BASKET" color="primary"/>
-          </div>
         </div>
-
+        </div>
+        </Section>
         </Layout>
     );
 }
