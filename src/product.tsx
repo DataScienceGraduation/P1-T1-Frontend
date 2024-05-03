@@ -14,13 +14,13 @@ const Product: React.FC = () => {
     const handleSizeSelect = (size: string) => {
         setSelectedSize(size);
     }
-    const [images, setImages] = useState({
+    const images = {
       img1 : StrippedHoodie,
       img2 : Striped1,
       img3 : Striped2,
       img4 : Striped3,
       img5 : Striped4
-    })
+    }
     const [ActiveImg, setActiveImage] = useState(images.img1)
     const [count, setCount] = useState(1);
     const decreaseCount = () =>{
