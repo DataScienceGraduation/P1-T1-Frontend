@@ -1,8 +1,6 @@
 import React, {useState} from 'react';
 import Layout from './Components/Layout';
 import Section from './Components/Section';
-import Item from './Components/Item';
-import { useLocation } from 'react-router-dom';
 import StrippedHoodie from './images/StrippedHoodie.png';
 import Dropdown from './Components/dropdown';
 import Button from './Components/Button';

@@ -7,7 +7,7 @@ import NotFound from './NotFound';
 import Login from './login';
 import Register from './register';
 import Product from './product';
-import Cart from './Cart';
+import Checkout from './Checkout';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -27,7 +27,10 @@ const router = createBrowserRouter([
     path: '/product', element: <Product/>
   },
   {
-    path: '/Cart', element: <Cart/>
+    path: '/checkout', element: <Checkout />
+  },
+  {
+    path: '*', element: <NotFound />
   }
 ]);
 

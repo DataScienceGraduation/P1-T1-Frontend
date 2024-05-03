@@ -5,7 +5,7 @@ import search from '../gg_search.svg';
 import user from '../gg_user.svg';
 import Navlink from './Navlink';
 import { Link } from 'react-router-dom';
-import Checkout from './Checkout';
+import Checkout from './Cart';
 
 export const Nav = () => {
     const [showCheckout, setShowcheckout] = useState(false);

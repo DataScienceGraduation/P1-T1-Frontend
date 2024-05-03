@@ -1,6 +1,5 @@
 import React from 'react';
 import Button from './Button';
-import Cart from '../Cart';
 import { Link } from 'react-router-dom';
 import StrippedHoodie from '../images/StrippedHoodie.png';
 import trainers from '../images/trainers.png';
@@ -61,7 +60,7 @@ const Checkout: React.FC<CheckoutProps> =  ({show,onClose}) => {
                 <div className='bottom-0 z-50 w-full px-12 mb-5 bg-secondary'>
                     <p className='block px-4 py-4 mx-auto my-4 space-x-20 text-center border-2 rounded-sm shadow-sm border-primary text-bold'><span className='text-bold'>TOTAL</span><span className='text-gray-700'>EGP 4000</span></p>
                     <div className='flex space-x-4'>
-                        <Link to='../Cart' className='w-full'>
+                        <Link to='../Checkout' className='w-full'>
                                 <Button text='CHECKOUT' color='secondary' />
                         </Link>
                         <button onClick={onClose} className="px-4 py-2 bg-gray-200 rounded-lg">Close</button>

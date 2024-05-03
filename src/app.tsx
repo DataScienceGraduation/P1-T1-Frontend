@@ -1,14 +1,11 @@
 import React from 'react';
 import Layout from './Components/Layout';
 import Section from './Components/Section';
-import Item from './Components/Item';
-import Nav from './Components/Nav';
 import championHoodie from './images/champion-hoodie.png';
 import fleeceHoodie from './images/fleece-hoodie.png';
 import hoodedSweatshirt from './images/hooded-sweatshirt.png';
 import Blob from './blob.svg';
 import Circle from './circle.svg';
-import { Link } from 'react-router-dom';
 import ProductLink from './Components/ProductLink'
 
 const App = () => {
