@@ -8,6 +8,7 @@ import Login from './login';
 import Register from './register';
 import Product from './product';
 import Checkout from './Checkout';
+import Account from './account';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -28,6 +29,9 @@ const router = createBrowserRouter([
   },
   {
     path: '/checkout', element: <Checkout />
+  },
+  {
+    path: '/account', element: <Account />
   },
   {
     path: '*', element: <NotFound />
