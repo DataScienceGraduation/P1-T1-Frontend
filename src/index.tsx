@@ -9,6 +9,7 @@ import Register from './register';
 import Product from './product';
 import Checkout from './Checkout';
 import Account from './account';
+import Display from './DisplayProducts';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -32,6 +33,9 @@ const router = createBrowserRouter([
   },
   {
     path: '/account', element: <Account />
+  },
+  {
+    path : '/DisplayProducts', element: <Display/>
   },
   {
     path: '*', element: <NotFound />

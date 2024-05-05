@@ -31,13 +31,13 @@ export const Nav = () => {
         <nav className='py-3 bg-secondary'>
             <div className={`w-full h-full z-[51] justify-center space-y-16 flex px-4 flex-col top-0 overscroll-none bg-secondary ${showNav ? 'fixed' : 'hidden'} md:hidden`}>
                 <Form type='text' placeholder='Search' />
-                <Navlink href="/athletics" classname='text-4xl font-bold' name="ATHLETICS" />
-                <Navlink href="/essentials" classname='text-4xl font-bold' name="ESSENTIALS" />
+                <Navlink href="/DisplayProducts" classname='text-4xl font-bold' name="ATHLETICS" />
+                <Navlink href="/DisplayProducts" classname='text-4xl font-bold' name="ESSENTIALS" />
             </div>
             <div className='grid max-w-screen-sm grid-cols-4 px-4 mx-auto md:grid-cols-3 lg:max-w-screen-lg 2xl:max-w-screen-2xl '>
                 <div className='hidden my-auto space-x-4 md:block'>
-                    <Navlink href="/athletics" name="ATHLETICS" />
-                    <Navlink href="/essentials" name="ESSENTIALS" />
+                    <Navlink href="/DisplayProducts" name="ATHLETICS" />
+                    <Navlink href="/DisplayProducts" name="ESSENTIALS" />
                 </div>
                 <Link to={'/'} className='col-span-2 md:col-span-1'>
                     <img src={logo} alt='Urban thread' className='mx-0 md:mx-auto'></img>
