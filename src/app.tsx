@@ -1,20 +1,23 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Layout from './Components/Layout';
 import Section from './Components/Section';
-import championHoodie from './images/champion-hoodie.png';
-import fleeceHoodie from './images/fleece-hoodie.png';
-import hoodedSweatshirt from './images/hooded-sweatshirt.png';
 import Blob from './blob.svg';
 import Circle from './circle.svg';
 import ProductLink from './Components/ProductLink'
 
 const App = () => {
-  const [animate, setAnimate] = useState(true);
+  const [featuredProducts, setFeaturedProducts] = useState([]);
 
-  // Function to toggle animation
-  const toggleAnimation = () => {
-    setAnimate(!animate);
-  }
+  useEffect(() => {
+    fetch('https://petrinet.azurewebsites.net/api/getFeaturedProducts/', {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+        }
+      })
+      .then(response => response.json())
+      .then(data => setFeaturedProducts(data['products']))
+    }, [featuredProducts]);
 
   return (
     <Layout>
@@ -30,9 +33,11 @@ const App = () => {
       </Section>
       <Section>
         <div className="grid grid-cols-1 gap-4 lg:grid-cols-3">
-          <ProductLink to="../product" name="Product 1" price={50} image={championHoodie} children={undefined}/>
-          <ProductLink to="../product" name="Product 2" price={60} image={fleeceHoodie} children={undefined}/>
-          <ProductLink to="../product" name="Product 3" price={30} image={hoodedSweatshirt} children={undefined}/>
+          {
+            featuredProducts.map((product) => (
+              <ProductLink to="../product" name={product['name']} price={product['price']} image={product['image']} />
+            ))
+          }
         </div>
       </Section>
     </Layout>

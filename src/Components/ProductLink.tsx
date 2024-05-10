@@ -1,10 +1,9 @@
-import React, {ReactNode} from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import Item from './Item';
 
 interface Props {
     to: string;
-    children: ReactNode;
     name: string;
     price: number;
     image: string;

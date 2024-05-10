@@ -20,15 +20,15 @@ const Display = () => {
             </Section>
             <Section className='py-8 px-24'>
            <div className="grid grid-cols-1 gap-4 lg:grid-cols-3 order-2">
-            <ProductLink to="../product" name="Product 1" price={50} image={championHoodie} children={undefined}/>
-            <ProductLink to = "../product" name="Product 2" price={60} image={fleeceHoodie} children={undefined}/>
-            <ProductLink to = "../product" name="Product 3" price={30} image={hoodedSweatshirt} children={undefined}/>
-            <ProductLink to="../product" name="Product 1" price={50} image={championHoodie} children={undefined}/>
-            <ProductLink to = "../product" name="Product 2" price={60} image={fleeceHoodie} children={undefined}/>
-            <ProductLink to = "../product" name="Product 3" price={30} image={hoodedSweatshirt} children={undefined}/>
-            <ProductLink to="../product" name="Product 1" price={50} image={championHoodie} children={undefined}/>
-            <ProductLink to = "../product" name="Product 2" price={60} image={fleeceHoodie} children={undefined}/>
-            <ProductLink to = "../product" name="Product 3" price={30} image={hoodedSweatshirt} children={undefined}/>
+            <ProductLink to="../product" name="Product 1" price={50} image={championHoodie}/>
+            <ProductLink to = "../product" name="Product 2" price={60} image={fleeceHoodie}/>
+            <ProductLink to = "../product" name="Product 3" price={30} image={hoodedSweatshirt}/>
+            <ProductLink to="../product" name="Product 1" price={50} image={championHoodie}/>
+            <ProductLink to = "../product" name="Product 2" price={60} image={fleeceHoodie}/>
+            <ProductLink to = "../product" name="Product 3" price={30} image={hoodedSweatshirt}/>
+            <ProductLink to="../product" name="Product 1" price={50} image={championHoodie}/>
+            <ProductLink to = "../product" name="Product 2" price={60} image={fleeceHoodie}/>
+            <ProductLink to = "../product" name="Product 3" price={30} image={hoodedSweatshirt}/>
            </div>
           </Section>
         </Layout>
