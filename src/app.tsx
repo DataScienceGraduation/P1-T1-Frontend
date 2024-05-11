@@ -17,7 +17,7 @@ const App = () => {
       })
       .then(response => response.json())
       .then(data => setFeaturedProducts(data['products']))
-    }, [featuredProducts]);
+    }, []);
 
   return (
     <Layout>
