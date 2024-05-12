@@ -4,6 +4,7 @@ import Button from './Components/Button';
 import ProductLink from './Components/ProductLink'
 import Section from './Components/Section';
 import { useParams } from "react-router-dom";
+import Spinner from './Components/Spinner';
 
 const Display = () => {
     const { name } = useParams();
@@ -20,12 +21,13 @@ const Display = () => {
         .then(data => {
             if(categories.length === 0){
                 setCategories(data);
+                if(data.length === 0){
+                    window.location.href = '/404';
+                }
+                console.log(data);
             }
         }).finally(() => {
-            if(categories.length === 0){
-                window.location.href = '/404';
-            }
-            for (let category of categories){
+            for (let category of categories) {
                 if (category['name'] === name){
                     const formData = new FormData();
                     formData.append('category', category['id']);
@@ -38,21 +40,15 @@ const Display = () => {
                         return data['products'];
                     })
                     .then(data => {
+                        console.log(data);
                         setProducts(data);
-                    })
-                    .finally(() => {
-                        if(products.length === 0){
-                            window.location.href = '/404';
-                        }
                     })
                 }
             }
         })
-        // eslint-disable-next-line
-    }, [])
+    }, [categories])
     return (
         <Layout>
-            {name}
             <Section className='py-8'>
             <div className='flex flex-row justify-center order-1 row-span-1 space-x-4'>
                 <Button text='all' variant='ghost' color='secondary' className='w-56 rounded-lg' />
@@ -64,6 +60,7 @@ const Display = () => {
             <Section className='px-24 py-8'>
            <div className="grid order-2 grid-cols-1 gap-4 lg:grid-cols-3">
             {
+                products.length === 0 ? <Spinner className="lg:col-span-3" /> :
                 products.map((product) => (
                     <ProductLink to="../product" name={product['name']} price={product['price']} image={product['image']} />
                 ))

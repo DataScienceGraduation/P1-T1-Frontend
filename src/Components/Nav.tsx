@@ -46,13 +46,13 @@ export const Nav = () => {
             <div className={`w-full h-full z-[51] justify-center space-y-16 flex px-4 flex-col top-0 overscroll-none bg-secondary ${showNav ? 'fixed' : 'hidden'} md:hidden`}>
                 <Form type='text' placeholder='Search' />
                 {categories?.map((category) => (
-                    <Navlink href="/DisplayProducts" classname='text-4xl font-bold' name={category['name']} />
+                    <Navlink href={`/Products/${category['name']}`} classname='text-4xl font-bold' name={category['name']} />
                 ))}
             </div>
             <div className='grid max-w-screen-sm grid-cols-4 px-4 mx-auto md:grid-cols-3 lg:max-w-screen-lg 2xl:max-w-screen-2xl '>
                 <div className='hidden my-auto space-x-4 md:block'>
                     {categories?.map((category) => (
-                        <Navlink href="/DisplayProducts" name={category['name']} />
+                        <Navlink href={`/Products/${category['name']}`} name={category['name']} />
                     ))}
                 </div>
                 <Link to={'/'} className='col-span-2 md:col-span-1'>
