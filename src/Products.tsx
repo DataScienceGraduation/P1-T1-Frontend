@@ -6,7 +6,7 @@ import Section from './Components/Section';
 import { useParams } from "react-router-dom";
 import Spinner from './Components/Spinner';
 
-const Display = () => {
+const Products = () => {
     const { name } = useParams();
     const [categories, setCategories] = useState<Array<any>>([])
     const [products, setProducts] = useState<Array<any>>([])
@@ -71,4 +71,4 @@ const Display = () => {
     );
 }
 
-export default Display;
+export default Products;

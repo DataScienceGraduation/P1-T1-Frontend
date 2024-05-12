@@ -9,7 +9,7 @@ import Register from './register';
 import Product from './product';
 import Checkout from './Checkout';
 import Account from './account';
-import Display from './DisplayProducts';
+import Products from './Products';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -35,11 +35,14 @@ const router = createBrowserRouter([
     path: '/account', element: <Account />
   },
   {
-    path : '/products/:name', element: <Display/>
+    path : '/products/:name', element: <Products />
+  },
+  {
+    path: '/products/Athletics/:id', element: <Product />
   },
   {
     path: '*', element: <NotFound />
-  }
+  },
 ]);
 
 root.render(
