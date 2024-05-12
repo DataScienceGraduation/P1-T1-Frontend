@@ -35,7 +35,7 @@ const router = createBrowserRouter([
     path: '/account', element: <Account />
   },
   {
-    path : '/DisplayProducts', element: <Display/>
+    path : '/products/:name', element: <Display/>
   },
   {
     path: '*', element: <NotFound />

@@ -1,38 +1,77 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import Layout from './Components/Layout';
 import Button from './Components/Button';
 import ProductLink from './Components/ProductLink'
-import championHoodie from './images/champion-hoodie.png';
-import fleeceHoodie from './images/fleece-hoodie.png';
-import hoodedSweatshirt from './images/hooded-sweatshirt.png';
 import Section from './Components/Section';
+import { useParams } from "react-router-dom";
 
 const Display = () => {
-    return(
+    const { name } = useParams();
+    const [categories, setCategories] = useState<Array<any>>([])
+    const [products, setProducts] = useState<Array<any>>([])
+    useEffect(() => {
+        fetch('https://petrinet.azurewebsites.net/api/getCategories/', {
+            method: 'GET',
+        })
+        .then(response => response.json())
+        .then(data => {
+            return data['Categories'];
+        })
+        .then(data => {
+            if(categories.length === 0){
+                setCategories(data);
+            }
+        }).finally(() => {
+            if(categories.length === 0){
+                window.location.href = '/404';
+            }
+            for (let category of categories){
+                if (category['name'] === name){
+                    const formData = new FormData();
+                    formData.append('category', category['id']);
+                    fetch(`https://petrinet.azurewebsites.net/api/getProducts/`, {
+                        method: 'POST',
+                        body: formData,
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        return data['products'];
+                    })
+                    .then(data => {
+                        setProducts(data);
+                    })
+                    .finally(() => {
+                        if(products.length === 0){
+                            window.location.href = '/404';
+                        }
+                    })
+                }
+            }
+        })
+        // eslint-disable-next-line
+    }, [])
+    return (
         <Layout>
+            {name}
             <Section className='py-8'>
-            <div className='row-span-1 flex flex-row space-x-4 justify-center order-1'>
-                <Button text='all' variant='ghost' color='secondary' className='rounded-lg w-56' />
-                <Button text='Trainers' variant='ghost' color='secondary' className='rounded-lg w-56' />
-                <Button text='Sweatshirts & hoodies' variant='ghost' color='secondary' className='rounded-lg w-56'/>
-                <Button text='Sweatpants' variant='ghost' color='secondary' className='rounded-lg w-56'/>
+            <div className='flex flex-row justify-center order-1 row-span-1 space-x-4'>
+                <Button text='all' variant='ghost' color='secondary' className='w-56 rounded-lg' />
+                <Button text='Trainers' variant='ghost' color='secondary' className='w-56 rounded-lg' />
+                <Button text='Sweatshirts & hoodies' variant='ghost' color='secondary' className='w-56 rounded-lg'/>
+                <Button text='Sweatpants' variant='ghost' color='secondary' className='w-56 rounded-lg'/>
             </div>
             </Section>
-            <Section className='py-8 px-24'>
-           <div className="grid grid-cols-1 gap-4 lg:grid-cols-3 order-2">
-            <ProductLink to="../product" name="Product 1" price={50} image={championHoodie}/>
-            <ProductLink to = "../product" name="Product 2" price={60} image={fleeceHoodie}/>
-            <ProductLink to = "../product" name="Product 3" price={30} image={hoodedSweatshirt}/>
-            <ProductLink to="../product" name="Product 1" price={50} image={championHoodie}/>
-            <ProductLink to = "../product" name="Product 2" price={60} image={fleeceHoodie}/>
-            <ProductLink to = "../product" name="Product 3" price={30} image={hoodedSweatshirt}/>
-            <ProductLink to="../product" name="Product 1" price={50} image={championHoodie}/>
-            <ProductLink to = "../product" name="Product 2" price={60} image={fleeceHoodie}/>
-            <ProductLink to = "../product" name="Product 3" price={30} image={hoodedSweatshirt}/>
+            <Section className='px-24 py-8'>
+           <div className="grid order-2 grid-cols-1 gap-4 lg:grid-cols-3">
+            {
+                products.map((product) => (
+                    <ProductLink to="../product" name={product['name']} price={product['price']} image={product['image']} />
+                ))
+            }
            </div>
           </Section>
         </Layout>
-    )
+    );
 }
 
 export default Display;

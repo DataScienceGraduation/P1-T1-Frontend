@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Layout from './Components/Layout';
 import Section from './Components/Section';
 import ProductPreview from './Components/ProductPreview';
@@ -8,7 +8,29 @@ import Form from './Components/Form';
 import { Link } from 'react-router-dom';
 
 const Account: React.FC = () => {
-    return(
+    const [token, setToken] = useState(localStorage.getItem('token'))
+    const logout = async () => {
+        const formData = new FormData();
+        if(token) {
+            formData.append('token', token)
+            fetch('https://petrinet.azurewebsites.net/api/logout/', {
+                method: 'POST',
+                body: formData
+            }).then(response => {
+                if(response.ok) {
+                    localStorage.removeItem('token')
+                    setToken(null)
+                    window.location.href = '/login'
+                }
+            })
+        }
+    }
+    useEffect(() => {
+        if(!token || token === 'undefined'){
+            window.location.href = '/login'
+        }
+    }, [token])
+    return (
         <Layout>
             <Section>
                 <div className='grid gap-4 md:grid-cols-5'>
@@ -56,6 +78,7 @@ const Account: React.FC = () => {
                             </div>
                             <Button text='Save Changes' color='primary'/>
                         </div>
+                        <button onClick={logout} className='w-1/2 px-4 py-4 text-white bg-red-500 rounded-sm'>Logout</button>
                     </div>
                 </div>
             </Section>
