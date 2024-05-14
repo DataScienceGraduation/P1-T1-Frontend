@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import logo from '../logo.svg';
+import logo from '../navlogo.svg';
 import shoppingCart from '../gg_shopping-cart.svg';
 import search from '../gg_search.svg';
 import user from '../gg_user.svg';
@@ -27,7 +27,7 @@ export const Nav = () => {
         })
         .then(response => response.json())
         .then(data => {
-            return data['Categories'];
+            return data['categories'];
         })
         .then(data => {
             setCategories(data);
@@ -50,14 +50,14 @@ export const Nav = () => {
                 ))}
             </div>
             <div className='grid max-w-screen-sm grid-cols-4 px-4 mx-auto md:grid-cols-3 lg:max-w-screen-lg 2xl:max-w-screen-2xl '>
-                <div className='hidden my-auto space-x-4 md:block'>
+                <Link to={'/'} className='col-span-2 md:col-span-1'>
+                    <img src={logo} alt='Urban thread' className='mx-0 md:mx-auto'></img>
+                </Link>
+                <div className='hidden mx-auto my-auto space-x-4 md:block'>
                     {categories?.map((category) => (
                         <Navlink href={`/Products/${category['name']}`} name={category['name']} />
                     ))}
                 </div>
-                <Link to={'/'} className='col-span-2 md:col-span-1'>
-                    <img src={logo} alt='Urban thread' className='mx-0 md:mx-auto'></img>
-                </Link>
                 <div className='flex justify-end col-span-2 my-auto space-x-4 md:col-span-1'>
                     <button onClick={toggleCheckout}>
                     <img src={shoppingCart} alt='Shopping Cart'></img>

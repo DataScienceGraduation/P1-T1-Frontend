@@ -6,7 +6,7 @@ const Footer = () => {
     return (
         <footer className='py-12 bg-secondary'>
             <div className='grid max-w-screen-sm grid-rows-3 px-4 mx-auto space-y-4 lg:space-y-0 lg:grid-rows-1 lg:grid-cols-3 lg:max-w-screen-lg 2xl:max-w-screen-2xl'>
-             <div className='my-auto text-center lg:text-left lg:order-1'>
+             <div className='my-auto space-y-2 text-center lg:text-left lg:order-1'>
                 <h1>JOIN THE CONVERSATION</h1>
                 <Form type='email' placeholder='example@gmail.com' required={true} className='w-full' />
              </div>

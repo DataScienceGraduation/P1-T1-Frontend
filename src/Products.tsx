@@ -16,7 +16,7 @@ const Products = () => {
         })
         .then(response => response.json())
         .then(data => {
-            return data['Categories'];
+            return data['categories'];
         })
         .then(data => {
             if(categories.length === 0){
