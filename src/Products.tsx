@@ -11,6 +11,28 @@ const Products = () => {
     const [categories, setCategories] = useState<Array<any>>([])
     const [products, setProducts] = useState<Array<any>>([])
     useEffect(() => {
+        if(localStorage.getItem('categories')){
+            setCategories(JSON.parse(localStorage.getItem('categories') || '[]'));
+            for (let category of categories) {
+                if (category['name'] === name){
+                    const formData = new FormData();
+                    formData.append('category', category['id']);
+                    fetch(`https://petrinet.azurewebsites.net/api/getProducts/`, {
+                        method: 'POST',
+                        body: formData,
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        return data['products'];
+                    })
+                    .then(data => {
+                        console.log(data);
+                        setProducts(data);
+                    })
+                }
+            }
+            return;
+        }
         fetch('https://petrinet.azurewebsites.net/api/getCategories/', {
             method: 'GET',
         })

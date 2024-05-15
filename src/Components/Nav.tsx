@@ -22,6 +22,10 @@ export const Nav = () => {
         setShowNav(!showNav);
     }
     useEffect(() => {
+        if(localStorage.getItem('categories') && localStorage.getItem('categoriesTime') && localStorage.getItem('categoriesTime') && Date.now() - parseInt(localStorage.getItem('categoriesTime') as string) < 86400000) {
+            setCategories(JSON.parse(localStorage.getItem('categories') || '[]'));
+            return;
+        }
         fetch('https://petrinet.azurewebsites.net/api/getCategories/', {
             method: 'GET',
         })
@@ -31,6 +35,8 @@ export const Nav = () => {
         })
         .then(data => {
             setCategories(data);
+            localStorage.setItem('categories', JSON.stringify(data));
+            localStorage.setItem('categoriesTime', Date.now().toString());
         })
     }, [])
     useEffect(() => {
@@ -51,7 +57,7 @@ export const Nav = () => {
             </div>
             <div className='grid max-w-screen-sm grid-cols-4 px-4 mx-auto md:grid-cols-3 lg:max-w-screen-lg 2xl:max-w-screen-2xl '>
                 <Link to={'/'} className='col-span-2 md:col-span-1'>
-                    <img src={logo} alt='Urban thread' className='mx-0 md:mx-auto'></img>
+                    <img src={logo} alt='Urban thread'></img>
                 </Link>
                 <div className='hidden mx-auto my-auto space-x-4 md:block'>
                     {categories?.map((category) => (
