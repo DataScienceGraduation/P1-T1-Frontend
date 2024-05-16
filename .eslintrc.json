@@ -1,0 +1,78 @@
+{
+    "env": {
+      "browser": true,
+      "es2021": true,
+      "node": true
+    },
+    "extends": [
+      "airbnb",
+      "airbnb/hooks",
+      "plugin:@typescript-eslint/recommended",
+      "plugin:react/recommended",
+      "plugin:jsx-a11y/recommended",
+      "plugin:import/errors",
+      "plugin:import/warnings",
+      "plugin:import/typescript",
+      "plugin:prettier/recommended"
+    ],
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+      "ecmaFeatures": {
+        "jsx": true
+      },
+      "ecmaVersion": "latest",
+      "sourceType": "module"
+    },
+    "plugins": [
+      "react",
+      "@typescript-eslint",
+      "jsx-a11y",
+      "import",
+      "prettier",
+      "simple-import-sort"
+    ],
+    "rules": {
+        "prettier/prettier": "error",
+        "react/prop-types": "off",
+        "react/function-component-definition": [
+            2,
+            {
+              "namedComponents": "arrow-function",
+              "unnamedComponents": "arrow-function"
+            }
+          ],
+      "import/extensions": [
+        "error",
+        "ignorePackages",
+        {
+          "ts": "never",
+          "tsx": "never"
+        }
+      ],
+      "react/jsx-filename-extension": [
+        1,
+        { "extensions": [".tsx"] }
+      ],
+      "react/react-in-jsx-scope": "off",
+      "import/no-extraneous-dependencies": ["off", { "devDependencies": true }],
+      "no-use-before-define": "off",
+      "@typescript-eslint/no-use-before-define": "off",
+      "no-shadow": "off",
+      "@typescript-eslint/no-shadow": "off",
+      "react/require-default-props": ["error", { "ignoreFunctionalComponents": true }],
+      "react/button-has-type": "off",
+      "simple-import-sort/imports": "error",
+      "simple-import-sort/exports": "error"
+    },
+    "settings": {
+      "import/resolver": {
+        "node": {
+          "extensions": [".js", ".jsx", ".ts", ".tsx"]
+        }
+      },
+      "react": {
+        "version": "detect"
+      }
+    }
+  }
+  

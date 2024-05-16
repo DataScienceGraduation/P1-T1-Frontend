@@ -3,43 +3,42 @@
 @tailwind utilities;
 
 @font-face {
-  font-family: 'Violet Sans';
-  src: url('fonts/VioletSans-Regular.otf') format('opentype');
-  font-weight: 400;
-  font-style: normal;
+    font-family: 'Violet Sans';
+    src: url('fonts/VioletSans-Regular.otf') format('opentype');
+    font-weight: 400;
+    font-style: normal;
 }
 
 @font-face {
-  font-family: 'Heming';
-  src: url('fonts/heming-variable.ttf') format('truetype');
+    font-family: 'Heming';
+    src: url('fonts/heming-variable.ttf') format('truetype');
 }
 
 @font-face {
-  font-family: 'Grotesk';
-  src: url('fonts/DTGetaiGroteskDisplay-Black.ttf') format('truetype');
-
+    font-family: 'Grotesk';
+    src: url('fonts/DTGetaiGroteskDisplay-Black.ttf') format('truetype');
 }
 
 .text-shadow {
-  text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2);
+    text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 body {
-  @apply font-body;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    @apply font-body;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+        monospace;
 }
 
 @keyframes marquee {
-  0% {
-    transform: translateX(100%);
-  }
-  100% {
-    transform: translateX(-100%);
-  }
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
 }
