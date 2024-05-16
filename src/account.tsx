@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import Layout from './Components/Layout';
-import Section from './Components/Section';
-import ProductPreview from './Components/ProductPreview';
-import championHoodie from './images/champion-hoodie.png';
+import { Link } from 'react-router-dom';
+
 import Button from './Components/Button';
 import Form from './Components/Form';
-import { Link } from 'react-router-dom';
+import Layout from './Components/Layout';
+import ProductPreview from './Components/ProductPreview';
+import Section from './Components/Section';
+import championHoodie from './images/champion-hoodie.png';
 
 const Account: React.FC = () => {
     const [token, setToken] = useState(localStorage.getItem('token'));
@@ -42,25 +43,25 @@ const Account: React.FC = () => {
                             <div className="grid grid-cols-2 gap-4">
                                 <Form
                                     type="text"
-                                    required={true}
+                                    required
                                     name="First Name"
                                     placeholder="First Name"
                                 />
                                 <Form
                                     type="text"
-                                    required={true}
+                                    required
                                     name="Last Name"
                                     placeholder="Last Name"
                                 />
                                 <Form
                                     type="email"
-                                    required={true}
+                                    required
                                     name="Email"
                                     placeholder="Email"
                                 />
                                 <Form
                                     type="password"
-                                    required={true}
+                                    required
                                     name="Password"
                                     placeholder="Password"
                                 />
@@ -68,13 +69,13 @@ const Account: React.FC = () => {
                             <div className="grid grid-cols-2 gap-4">
                                 <Form
                                     type="text"
-                                    required={true}
+                                    required
                                     name="Apartment No."
                                     placeholder="Apartment"
                                 />
                                 <Form
                                     type="text"
-                                    required={true}
+                                    required
                                     name="Zip Code"
                                     placeholder="Zip Code"
                                 />
@@ -87,20 +88,20 @@ const Account: React.FC = () => {
                             <div className="grid grid-cols-2 gap-4">
                                 <Form
                                     type="text"
-                                    required={true}
+                                    required
                                     name="Country"
                                     placeholder="Country"
                                 />
                                 <Form
                                     type="text"
-                                    required={true}
+                                    required
                                     name="City"
                                     placeholder="City"
                                 />
                                 <Form
                                     type="text"
                                     className="col-span-2"
-                                    required={true}
+                                    required
                                     name="Street"
                                     placeholder="Street"
                                 />
@@ -108,13 +109,13 @@ const Account: React.FC = () => {
                             <div className="grid grid-cols-2 gap-4">
                                 <Form
                                     type="text"
-                                    required={true}
+                                    required
                                     name="Apartment No."
                                     placeholder="Apartment"
                                 />
                                 <Form
                                     type="text"
-                                    required={true}
+                                    required
                                     name="Zip Code"
                                     placeholder="Zip Code"
                                 />
@@ -132,7 +133,7 @@ const Account: React.FC = () => {
                                     id="email"
                                     name="email"
                                     value="email"
-                                ></input>
+                                />
                                 <label
                                     htmlFor="email"
                                     className="pl-2 font-bold"
@@ -146,7 +147,7 @@ const Account: React.FC = () => {
                                     id="sms"
                                     name="sms"
                                     value="sms"
-                                ></input>
+                                />
                                 <label htmlFor="sms" className="pl-2 font-bold">
                                     SMS Notifications
                                 </label>
@@ -157,7 +158,7 @@ const Account: React.FC = () => {
                                     id="push"
                                     name="push"
                                     value="push"
-                                ></input>
+                                />
                                 <label
                                     htmlFor="push"
                                     className="pl-2 font-bold"

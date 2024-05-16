@@ -70,7 +70,7 @@ const Checkout: React.FC = () => {
                                 id="cash"
                                 name="payment"
                                 value="Cash on delivery"
-                            ></input>
+                            />
                             <label htmlFor="cash" className="pl-2 font-bold">
                                 Credit Card
                             </label>
