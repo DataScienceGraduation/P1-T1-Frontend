@@ -8,67 +8,22 @@ import Spinner from './Components/Spinner';
 
 const Products = () => {
     const { name } = useParams();
-    const [categories, setCategories] = useState<Array<any>>([])
     const [products, setProducts] = useState<Array<any>>([])
     useEffect(() => {
-        if(localStorage.getItem('categories')){
-            setCategories(JSON.parse(localStorage.getItem('categories') || '[]'));
-            for (let category of categories) {
-                if (category['name'] === name){
-                    const formData = new FormData();
-                    formData.append('category', category['id']);
-                    fetch(`https://petrinet.azurewebsites.net/api/getProducts/`, {
-                        method: 'POST',
-                        body: formData,
-                    })
-                    .then(response => response.json())
-                    .then(data => {
-                        return data['products'];
-                    })
-                    .then(data => {
-                        console.log(data);
-                        setProducts(data);
-                    })
-                }
-            }
-            return;
-        }
-        fetch('https://petrinet.azurewebsites.net/api/getCategories/', {
-            method: 'GET',
+        const formData = new FormData();
+        formData.append('category', name as string);
+        fetch(`https://petrinet.azurewebsites.net/api/getProducts/`, {
+            method: 'POST',
+            body: formData
         })
         .then(response => response.json())
         .then(data => {
-            return data['categories'];
+            setProducts(data['products'])
         })
-        .then(data => {
-            if(categories.length === 0){
-                setCategories(data);
-                if(data.length === 0){
-                    window.location.href = '/404';
-                }
-                console.log(data);
-            }
-        }).finally(() => {
-            for (let category of categories) {
-                if (category['name'] === name){
-                    const formData = new FormData();
-                    formData.append('category', category['id']);
-                    fetch(`https://petrinet.azurewebsites.net/api/getProducts/`, {
-                        method: 'POST',
-                        body: formData,
-                    })
-                    .then(response => response.json())
-                    .then(data => {
-                        return data['products'];
-                    })
-                    .then(data => {
-                        console.log(data);
-                        setProducts(data);
-                    })
-                }
-            }
+        .catch(err => {
+            window.location.href = '/NotFound'
         })
-    }, [categories])
+    }, [name])
     return (
         <Layout>
             <Section className='py-8'>

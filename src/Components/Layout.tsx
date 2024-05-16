@@ -19,21 +19,6 @@ const pageVariants = {
     }
   };
   
-  const logoVariants = {
-    initial: {
-      scale: 0.8,
-      opacity: 0
-    },
-    in: {
-      scale: 1,
-      opacity: 1
-    },
-    out: {
-      scale: 0.8,
-      opacity: 0
-    }
-  };
-  
   const pageTransition = {
     type: "tween",
     ease: "anticipate",

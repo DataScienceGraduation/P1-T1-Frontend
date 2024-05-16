@@ -27,7 +27,7 @@ const App = () => {
             <div className='col-span-1 px-8 py-10 md:col-span-2 bg-secondary'>
               <h1 className="text-3xl text-center md:text-left md:text-5xl w-full line lg:-left-1 xl:-left-2 font-heading font-bold md:pb-12 tracking-[0.2em] text-shadow">
                 CHALLENGE <br /> THE <br />
-                <span className='leading-[1.6] font-heading font-bold tracking-[0.5em]'>#NORM</span>
+                <span className='leading-[1.6] font-grotesk font-bold tracking-[0.5em]'>#NORM</span>
               </h1>
             </div>
             <div className='relative col-span-1'>
@@ -64,7 +64,7 @@ const App = () => {
           <div className='flex flex-row justify-center col-span-1 md:col-span-5'>
             <h1 className="hidden md:block text-2xl my-auto text-center md:text-left md:text-5xl w-full line lg:-left-1 xl:-left-2 font-heading font-bold pb-12 tracking-[0.2em] text-shadow">
                 Each Fabric <br /> telling a <br />
-                <span className='leading-[1.6] font-body font-bold tracking-[0.5em]'>STORY</span>
+                <span className='leading-[1.6] font-grotesk font-bold tracking-[0.5em]'>STORY</span>
               </h1>
           </div>
         </div>

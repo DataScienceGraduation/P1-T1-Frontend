@@ -12,6 +12,7 @@ module.exports = {
       fontFamily: {
         'heading': ['Heming'],
         'body': ['Violet Sans'],
+        'grotesk': ['Grotesk'],
       },
       boxShadow: {
         'text': '0 2px 4px rgba(0, 0, 0, 0.2)',
