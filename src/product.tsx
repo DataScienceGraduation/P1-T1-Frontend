@@ -35,17 +35,16 @@ const Product: React.FC = () => {
         if (localStorage.getItem('token')) {
             const formData = new FormData();
             formData.append('product_id', id as string);
-            formData.append('size', selectedSize);
             formData.append('quantity', count.toString());
             formData.append('token', localStorage.getItem('token') as string);
             fetch('https://petrinet.azurewebsites.net/api/addToCart/', {
                 method: 'POST',
                 body: formData,
             })
-                .then((response) => response.json())
-                .then((data) => {
-                    console.log(data);
-                });
+            .then((response) => response.json())
+            .then((data) => {
+                console.log(data);
+            })
         } else {
             window.location.href = '/login';
         }
@@ -74,30 +73,6 @@ const Product: React.FC = () => {
                             alt=""
                             className="w-24 h-32 mx-1 md:mr-0 md:ml-auto"
                             onClick={() => setActiveImage(images.img1)}
-                        />
-                        <img
-                            src={images.img2}
-                            alt=""
-                            className="w-24 h-32 mx-1 md:mr-0 md:ml-auto"
-                            onClick={() => setActiveImage(images.img2)}
-                        />
-                        <img
-                            src={images.img3}
-                            alt=""
-                            className="w-24 h-32 mx-1 md:mr-0 md:ml-auto"
-                            onClick={() => setActiveImage(images.img3)}
-                        />
-                        <img
-                            src={images.img4}
-                            alt=""
-                            className="w-24 h-32 mx-1 md:mr-0 md:ml-auto"
-                            onClick={() => setActiveImage(images.img4)}
-                        />
-                        <img
-                            src={images.img5}
-                            alt=""
-                            className="w-24 h-32 mx-1 md:mr-0 md:ml-auto"
-                            onClick={() => setActiveImage(images.img5)}
                         />
                     </div>
                     <div className="flex items-center order-1 md:order-2 justify-right md:col-span-3">
@@ -148,12 +123,6 @@ const Product: React.FC = () => {
                                 alt=""
                                 className="w-24 h-32 mx-2 rounded-xl"
                                 onClick={() => setActiveImage(product.image)}
-                            />
-                            <img
-                                src={images.img2}
-                                alt=""
-                                className="w-24 h-32 mx-2 rounded-xl"
-                                onClick={() => setActiveImage(images.img2)}
                             />
                         </div>
                         <div className="py-4">

@@ -12,6 +12,19 @@ import Products from './products';
 import App from './app';
 import './index.css';
 
+const formData = new FormData();
+formData.append('token', localStorage.getItem('token') as string);
+
+fetch('https://petrinet.azurewebsites.net/', {
+    method: 'POST',
+    body: formData,
+})
+    .then((response) => response.json())
+    .then((data) => {
+        localStorage.setItem('cart', JSON.stringify(data));
+    });
+
+
 ReactDOM.render(
     <React.StrictMode>
         <Router>
