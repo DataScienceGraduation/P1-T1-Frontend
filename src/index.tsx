@@ -15,7 +15,7 @@ import './index.css';
 const formData = new FormData();
 formData.append('token', localStorage.getItem('token') as string);
 
-fetch('https://petrinet.azurewebsites.net/api/getCart', {
+fetch('https://petrinet.azurewebsites.net/api/getCart/', {
     method: 'POST',
     body: formData,
 })
